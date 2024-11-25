@@ -62,4 +62,4 @@ En nuestro archivo settings.py incluimos la app creada en INSTALLED_APPS, agrega
 Créditos
 Autor✒️
 
-TOBIAS SPAGNOLO, VALENTINO FORCINITI. AREL DE SANCTIS.
+TOBIAS SPAGNOLO, VALENTINO FORCINITI, AREL DE SANCTIS.
