@@ -1,0 +1,49 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    EMPLEADOS
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <h1>NUESTROS EMPLEADOS:</h1>
+    {% for Empleados in empleados %}
+        <div class="container">
+            <table class="table table-hover">
+                <tbody>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <tr class="table-active">
+                        <td>{{Empleados.id}}</td>
+                        <td>{{Empleados.nombre_empleado}}</td>
+                        <td>{{Empleados.email_empleado}}</td>
+                        <td>{{Empleados.telefono_empleado}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div> <!-- Este div puede estar vacío para alineación a la izquierda -->
+                <button type="button" class="btn btn-primary">
+                    <a href="{% url 'CREAR_EMPLEADOS' %}">Crear</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary ml-3"> <!-- ml-3 para margen a la izquierda -->
+                    <a href="{% url 'BUSCAR_EMPLEADOS' %}">Buscar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-primary'>
+                    <a href="{% url 'ACTUALIZAR_EMPLEADO' Empleados.id %}">Actualizar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-primary'>
+                    <a href="{% url 'ELIMINAR_EMPLEADOS' Empleados.id %}">Eliminar</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{%endblock%}

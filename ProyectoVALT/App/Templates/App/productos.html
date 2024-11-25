@@ -1,0 +1,54 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    PRODUCTOS
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <h1>NUESTROS PRODUCTOS:</h1>
+    {% for Productos in productos %}
+        <div class="container">
+            <table class="table table-hover">
+                <tbody>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Marca del Producto</th>
+                    <th scope="col">Precio del Producto</th>
+                    <th scope="col">Categoria del Producto</th>
+                    <tr class="table-active">
+                        <td>{{Productos.id}}</td>
+                        <td>{{Productos.nombre_producto}}</td>
+                        <td>{{Productos.marca_producto}}</td>
+                        <td>{{Productos.precio_producto}}</td>
+                        <td>{{Productos.categoria_producto }}</td>
+                    </tr>
+                </tbody>
+            </table>
+                <button type ="button" class ="btn btn-primary">
+                    <a href="{% url 'CREAR_PRODUCTOS' %}">Crear</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-primary ml-3'>
+                    <a href="{% url 'BUSCAR_PRODUCTOS' %}">Buscar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-primary'>
+                    <a href="{% url 'ACTUALIZAR_PRODUCTO' Productos.id %}">Actualizar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-primary'>
+                    <a href="{% url 'ELIMINAR_PRODUCTOS' Productos.id %}">Eliminar</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+

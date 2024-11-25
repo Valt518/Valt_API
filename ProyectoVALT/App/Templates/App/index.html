@@ -1,0 +1,19 @@
+{% extends 'App/base.html'%}
+
+{% load static %}
+<body>
+{% block title %}
+    Home page
+{% endblock title %}    
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+
+<div class="titulo">
+    <form class="recuadro">
+        <h1> VALT </h1>
+        <h3>Componentes Electronicos</h3>
+    </form>
+</div>
+    {% endblock %}
+</body>

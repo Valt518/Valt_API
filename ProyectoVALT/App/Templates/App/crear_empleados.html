@@ -1,0 +1,23 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Crear empleados
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <form action="" method="post">{% csrf_token %}
+        <h3>Crear empleados</h3>
+        <table>
+            {{form.as_table}}
+        </table>
+        <div class = "container"> 
+            <button type="submit" class="btn btn-outline-success">Crear</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

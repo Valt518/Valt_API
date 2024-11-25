@@ -1,0 +1,43 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+{% block title %}
+    Buscar Producto
+{% endblock title %}
+
+{% block codigoDinamico %}
+<div class="container">
+    <form action="" method="get">
+        <input type="text" name="nombre_producto" id="nombre_producto" placeholder="Nombre Producto">
+        <input type="submit" value="Buscar Producto" class="btn btn-outline-light">
+    </form>
+    <div class="container">
+        {% if producto %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"> nombre_producto</th>
+                        <th scope="col"> id</th>
+                        <th scope="col"> marca_producto</th>
+                        <th scope="col"> precio_producto</th>
+                        <th scope="col"> categoria_producto</th>
+                    <tr>
+                <thead>
+                <tbody>
+                    {% for producto in producto %}
+                        <tr class="table-info">
+                            <td> {{producto.nombre_producto}} </td>
+                            <td> {{producto.id}} </td>
+                            <td> {{producto.marca_producto}} </td>
+                            <td> {{producto.precio_producto}} </td>
+                            <td> {{producto.categoria_producto}} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h1> no hay datos </h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

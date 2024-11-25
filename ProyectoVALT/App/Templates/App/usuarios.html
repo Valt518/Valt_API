@@ -1,0 +1,48 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    USUARIOS
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<div class="container">
+    <h1>NUESTROS USUARIOS: </h1>
+    {% for Usuarios in usuarios %}
+        <div class="container">
+            <table class="table table-hover">
+                <tbody>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Localidad</th>
+                    <tr class="table-active">
+                        <td>{{Usuarios.id}}</td>
+                        <td>{{Usuarios.nombre_usuario}}</td>
+                        <td>{{Usuarios.email_usuario}}</td>
+                        <td>{{Usuarios.telefono_usuario}}</td>
+                        <td>{{Usuarios.localidad_usuario}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type ="button" class ="btn btn-primary">
+                <a href="{% url 'CREAR_USUARIOS' %}">Crear</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-primary ml-3'>
+                <a href="{% url 'BUSCAR_USUARIOS' %}">Buscar</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-primary'>
+                <a href="{% url 'ACTUALIZAR_USUARIO' Usuarios.id%}">Actualizar</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-primary'>
+                <a href="{% url 'ELIMINAR_USUARIOS' Usuarios.id %}">Eliminar</a>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

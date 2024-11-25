@@ -1,0 +1,48 @@
+html{
+    margin: 0;
+}
+
+
+
+body{
+    background-image: url(https://wallpapersmug.com/download/1366x768/3a769e/gaming-keyboard-glow.jpg);
+    background-size: 1366px 768px;
+    background-position: relative;
+    height: 100vh;
+    }
+
+
+.imagen_fondo{
+    filter: blur(3px);
+}
+
+.titulo{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    font-size: 50px;
+    font: bold;
+    margin: 0 ;
+    color: #fff;
+    position: relative;
+}
+
+
+.recuadro {
+    backdrop-filter: blur(2px);
+    padding: 60px 200px;
+    margin: 1px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px  #000;
+}
+
+h3{
+    
+    white-space: nowrap;
+    font-size: 20px;
+}
