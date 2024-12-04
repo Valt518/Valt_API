@@ -1,0 +1,59 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    PRODUCTOS
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div form class = "recuadro_etiquetas" transition-style = 'in:square:center'>
+<div class="container">
+    <h3>NUESTROS PRODUCTOS:</h3>
+    <br>
+    {% for Productos in productos %}
+        <div class="container" transition-style = 'in:square:center'>
+            <table class="table table-dark">
+                <tbody>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre del Producto</th>
+                    <th scope="col">Marca del Producto</th>
+                    <th scope="col">Precio del Producto</th>
+                    <th scope="col">Categoria del Producto</th>
+                    <tr class="table-active">
+                        <td>{{Productos.id}}</td>
+                        <td>{{Productos.nombre_producto}}</td>
+                        <td>{{Productos.marca_producto}}</td>
+                        <td>{{Productos.precio_producto}}</td>
+                        <td>{{Productos.categoria_producto }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class = 'text-center'> 
+                <button type ="button" class ="btn btn-outline-primary">
+                    <a href="{% url 'CREAR_PRODUCTOS' %}">Crear</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary ml-3'>
+                    <a href="{% url 'BUSCAR_PRODUCTOS' %}">Buscar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary'>
+                    <a href="{% url 'ACTUALIZAR_PRODUCTO' Productos.id %}">Actualizar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary'>
+                    <a href="{% url 'ELIMINAR_PRODUCTOS' Productos.id %}">Eliminar</a>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+{% block title %}
+    Buscar Empleado
+{% endblock title %}
+    
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div class="container text-center">
+    <form action="" method="get">
+        <br>
+        <br>
+        <input class='input_text' type="text" name="nombre_empleado" id="nombre_empleado" placeholder="Nombre Empleado">
+        <input type="submit" value="Buscar Empleado" class="input_btn btn btn-outline-primary">
+    </form>
+    <div class="container">
+        {% if empleado %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in empleado %}
+                        <tr class="table-info">
+                            <td> {{empleado.nombre_empleado}} </td>
+                            <td> {{empleado.id}} </td>
+                            <td> {{empleado.email_empleado}} </td>
+                            <td> {{empleado.telefono_empleado}} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+        <br>
+        <br>
+            <h3>NO HAY DATOS</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

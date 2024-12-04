@@ -1,0 +1,53 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    USUARIOS
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div form class = "recuadro_etiquetas" transition-style = 'in:square:center'>
+<div class="container" >
+    <h3>NUESTROS USUARIOS:</h3>
+    <br>
+    {% for Usuarios in usuarios %}
+        <div class="container" transition-style = 'in:square:center'>
+            <table class="table table-dark">
+                <tbody>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Localidad</th>
+                    <tr class="table-active">
+                        <td>{{Usuarios.id}}</td>
+                        <td>{{Usuarios.nombre_usuario}}</td>
+                        <td>{{Usuarios.email_usuario}}</td>
+                        <td>{{Usuarios.telefono_usuario}}</td>
+                        <td>{{Usuarios.localidad_usuario}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class = 'text-center'> 
+            <button type ="button" class ="btn btn-outline-primary">
+                <a href="{% url 'CREAR_USUARIOS' %}">Crear</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-outline-primary ml-3'>
+                <a href="{% url 'BUSCAR_USUARIOS' %}">Buscar</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-outline-primary'>
+                <a href="{% url 'ACTUALIZAR_USUARIO' Usuarios.id%}">Actualizar</a>
+            </button>
+            &nbsp; &nbsp;&nbsp;
+            <button type='button' class='btn btn-outline-primary'>
+                <a href="{% url 'ELIMINAR_USUARIOS' Usuarios.id %}">Eliminar</a>
+    </div>
+    <br>
+{% endfor %}
+</div>
+{% endblock %}

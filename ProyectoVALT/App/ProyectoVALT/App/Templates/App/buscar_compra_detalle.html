@@ -1,0 +1,51 @@
+{% extends "App/base.html" %}
+{% load static %}
+
+{% block title %}
+    Buscar Detalles De Compra
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div class="container text-center">
+    <form action="" method="get">
+        <br>
+        <br>
+        <input class='input_text' type="text" name="forma_de_pago" id="forma_de_pago" placeholder="Metodo De Pago">
+        <input type="submit" value="Buscar Detalle De Compra" class="input_btn btn btn-outline-primary">
+    </form>
+    <div class="container">
+        <table class="table table-dark">
+        {% if compra_detalle %}
+        <br>
+        <br>
+                <thead>
+                    <tr>
+                        <th scope="col">Monto</th>
+                        <th scope="col">ID</th> 
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Forma de Pago</th>
+                        <th scope="col">Producto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detalle in compra_detalle %}
+                        <tr class="table-info">
+                            <table class="table table-dark">
+                            <td>{{ detalle.monto }}</td>
+                            <td>{{ detalle.id }}</td>
+                            <td>{{ detalle.fecha }}</td>
+                            <td>{{ detalle.forma_de_pago }}</td>
+                            <td>{{ detalle.producto }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+        <br>
+        <br>
+            <h3>NO HAY DATOS</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

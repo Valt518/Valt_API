@@ -1,0 +1,29 @@
+{% extends 'App/base.html' %}
+{% load static %}
+
+{% block title %}
+    Actualizar Empleado
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div class="container text-center">
+    <form action="" method="post">{% csrf_token %}
+        <br>
+        <h3>Actualizar Un Empleado</h3>
+        <br>
+        <br>
+        <br>
+        <table class = 'input'>
+            {{form.as_table}}
+        </table>
+        <div class="container text-center">
+            <br>
+            <button type="submit" class="input_btn btn btn-outline-primary">Actualizar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+

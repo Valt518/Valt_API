@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+</title>
+<link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent" data-bs-theme="transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"> 
+                        <h5 class="nav-link active item_navbar" href="{% url 'INDEX' %}">VAT 
+                            <span class="visually-hidden">(current)</span>
+                        </h5>
+                    </li>
+                    {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'REGISTRO' %}">Registrarse</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'COMPRA' %}">COMPRAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'EMPLEADOS' %}">EMPLEADOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'PRODUCTOS' %}">PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'USUARIOS' %}">USUARIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'VENTAS' %}">VENTAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'LOGOUT' %}">LOGOUT</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'LOGIN' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            {% if request.user.is_authenticated %}
+            <h2> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ user.username }} </h2>
+            <a href="{% url 'LOGOUT' %}"> cerrar sesión</a>
+            {% else %}
+            <h2><a href="{% url 'LOGIN' %}"></a></h2>
+            {% endif %}
+        </div>
+    </nav>
+    {% block codigoDinamico %}
+    {% endblock %}
+</body>
+</html>

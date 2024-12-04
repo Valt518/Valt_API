@@ -1,0 +1,55 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    COMPRA DETALLES
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div form class = "recuadro_etiquetas" transition-style = 'in:square:center'>
+<div class="container">
+    <h3>NUESTRAS COMPRAS:</h3>
+    <br>
+    {% for Compra_detalles in compra_detalle %}
+        <div class="container" transition-style = 'in:square:center'>
+            <table class="table table-dark">
+                <tbody>
+                    <th scope="col">ID</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Forma de Pago</th>
+                    <th scope="col">Producto</th>
+                    <tr class="table-active">
+                        <td>{{Compra_detalles.id}}</td>
+                        <td>{{Compra_detalles.monto}}</td>
+                        <td>{{Compra_detalles.fecha}}</td>
+                        <td>{{Compra_detalles.forma_de_pago}}</td>
+                        <td>{{Compra_detalles.producto}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class = 'text-center'> 
+                <button type="button" class="btn btn-outline-primary">
+                    <a href="{% url 'CREAR_COMPRA_DETALLES' %}">Crear</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary'>
+                    <a href="{% url 'BUSCAR_COMPRA_DETALLE' %}">Buscar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary'>
+                    <a href="{% url 'ACTUALIZAR_COMPRA_DETALLE' Compra_detalles.id %}">Actualizar</a>
+                </button>
+                &nbsp; &nbsp;&nbsp;
+                <button type='button' class='btn btn-outline-primary'>
+                    <a href="{% url 'ELIMINAR_COMPRA_DETALLE' Compra_detalles.id %}">Eliminar</a>
+                </button>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+</div>
+{% endblock %}

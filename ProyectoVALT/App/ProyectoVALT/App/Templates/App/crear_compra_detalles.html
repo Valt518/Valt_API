@@ -1,0 +1,31 @@
+{% extends 'App/base.html' %}
+
+{% load static %}
+<body>
+{% block title %}
+    Crear Detalle Compra
+{% endblock title %}
+
+{% block codigoDinamico %}
+
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div class="container text-center">
+    <form action="" method="post">{% csrf_token %}
+        <br>
+        <h3>CREAR DETALLE DE COMPRA</h3>
+        <br>
+        <br>
+        <br>
+            <table class='input'>
+                {{form.as_table}}
+            </table>
+        <br>
+        <br>
+        <div class = "container"> 
+            <button type="submit" class="input_btn btn btn-outline-primary">CREAR</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+</body>

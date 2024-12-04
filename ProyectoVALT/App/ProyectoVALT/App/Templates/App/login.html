@@ -1,0 +1,32 @@
+{% extends "App/base.html" %}
+
+{% load static %}
+<body>
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<br>
+<div class='container'>
+    <h3>Inicio de sesion </h3>
+</div>
+<div form class = "recuadro">
+<div class="container form-container">
+    <form method="post"> {% csrf_token %}
+        <table class='input'>
+            {{ form|crispy }}
+        </table> 
+        <button type="submit" class="btn btn-info">Login</button>
+    </form>
+    <div class='container text-center' >
+        <p> ¿No tienes cuenta?  ¡crea una!</p> <a href="{% url 'REGISTRO' %}">Registrarse </a>
+    </div>
+</div>
+
+{% endblock %}
+</body>

@@ -1,0 +1,48 @@
+{% extends "App/base.html" %}
+{% load static %}
+{% block title %}
+    BUSCAR DETALLE DE VENTA
+{% endblock title %}
+
+{% block codigoDinamico %}
+<link rel="stylesheet" href="{% static 'App/style.css' %}">
+<div class="container text-center">
+    <form action="" method="get">
+        <br>
+        <br>
+        <input type="text" name="forma_de_pago" id="forma_de_pago" placeholder="Forma De Pago">
+        <input type="submit" value="Buscar Detalle De Venta" class="input_btn btn btn-outline-primary">
+    </form>
+    {% if venta_detalle %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"> id</th>
+                    <th scope="col">monto</th>
+                    <th scope="col">fecha</th>
+                    <th scope="col">forma_de_pago</th>
+                    <th scope="col">producto</th>
+                    <th scope="col">usuario</th>
+                    <tr class="table-info">
+                <tr>
+            <thead>
+            <tbody>
+                    {% for venta_detalle in venta_detalle  %}
+                    <tr class="table-info">
+                    <td> {{venta_detalle.id}} </td>
+                    <td> {{venta_detalle.monto}} </td>
+                    <td> {{venta_detalle.fecha}} </td>
+                    <td> {{venta_detalle.forma_de_pago}} </td>
+                    <td> {{venta_detalle.producto}} </td>
+                    <td> {{venta_detalle.usuario}} </td>
+            </tbody>
+        </table>
+        {% endfor %}
+    {% else %}
+    <br>
+    <br>
+        <h3> no hay datos </h3>
+    {% endif %}
+</div>
+
+{% endblock %}
