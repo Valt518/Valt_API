@@ -8,7 +8,7 @@ Comenzando🚀
 
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu local para propósitos de desarrollo y pruebas.
 
-git clone (https://github.com/igiordano/ModeloFinal2024.git)
+git clone (https://github.com/Valt518/Valt_API)
 
 Descarga de instalación ZIP
 Ir a “code” > download ZIP Descomprimir el archivo y luego elegir en que carpeta de tu equipo lo instalas y lurgo se abre con VS CODE
